@@ -1,5 +1,8 @@
-import type { Theme } from '@/contexts/theme-context'
-import { ThemeProviderContext } from '@/contexts/theme-context'
+import {
+    type Theme,
+    ThemeProviderContext,
+    themes,
+} from '@/contexts/theme-context'
 import { useEffect, useState } from 'react'
 
 type ThemeProviderProps = {
@@ -21,7 +24,7 @@ export function ThemeProvider({
     useEffect(() => {
         const root = window.document.documentElement
 
-        root.classList.remove('light', 'dark')
+        root.classList.remove(...themes)
 
         if (theme === 'system') {
             const systemTheme = window.matchMedia(

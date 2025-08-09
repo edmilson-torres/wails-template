@@ -1,6 +1,17 @@
 import { createContext } from 'react'
 
-export type Theme = 'dark' | 'light' | 'system'
+export const themes = [
+    'system',
+    'light',
+    'dark',
+    'dark-violet',
+    'dark-yellow',
+    'dark-blue',
+    'dark-green',
+    'dark-orange',
+] as const
+
+export type Theme = (typeof themes)[number]
 
 export type ThemeProviderState = {
     theme: Theme
