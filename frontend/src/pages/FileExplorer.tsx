@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { SelectDirectory, ListFiles } from '../../wailsjs/go/main/App'
+import { ListFiles, SelectDirectory } from '../../wailsjs/go/main/App'
 
 interface FileInfo {
     FullPath: string
@@ -36,28 +36,38 @@ export function FileExplorer() {
                 <Button onClick={handleSelectDirectory}>
                     Selecionar Diretório
                 </Button>
-                {error && (
-                    <p className="text-sm text-red-500">Erro: {error}</p>
-                )}
+                {error && <p className="text-sm text-red-500">Erro: {error}</p>}
                 {selectedDir && !error && (
-                    <p className="text-sm text-gray-500">Diretório: {selectedDir}</p>
+                    <p className="text-sm text-gray-500">
+                        Diretório: {selectedDir}
+                    </p>
                 )}
                 {files.length > 0 && (
                     <table className="w-full border-collapse border">
                         <thead>
                             <tr className="bg-gray-100 dark:bg-gray-800">
-                                <th className="border p-2 text-left">Caminho Completo</th>
+                                <th className="border p-2 text-left">
+                                    Caminho Completo
+                                </th>
                                 <th className="border p-2 text-left">Nome</th>
-                                <th className="border p-2 text-left">Extensão</th>
+                                <th className="border p-2 text-left">
+                                    Extensão
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {files.map((file, index) => (
                                 <tr
                                     key={index}
-                                    className={index % 2 === 0 ? 'bg-white dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-800'}
+                                    className={
+                                        index % 2 === 0
+                                            ? 'bg-background dark:bg-background'
+                                            : 'bg-muted dark:bg-muted'
+                                    }
                                 >
-                                    <td className="border p-2">{file.FullPath}</td>
+                                    <td className="border p-2">
+                                        {file.FullPath}
+                                    </td>
                                     <td className="border p-2">{file.Name}</td>
                                     <td className="border p-2">{file.Ext}</td>
                                 </tr>
