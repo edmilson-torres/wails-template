@@ -6,19 +6,25 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config([
-  globalIgnores(['dist', 'wailsjs']),
-  {
-    files: ['src/**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+    globalIgnores(['dist', 'wailsjs']),
+    {
+        files: ['src/**/*.{ts,tsx}'],
+        extends: [
+            js.configs.recommended,
+            tseslint.configs.recommended,
+            reactHooks.configs['recommended-latest'],
+            reactRefresh.configs.vite,
+        ],
+        languageOptions: {
+            ecmaVersion: 2020,
+            globals: globals.browser,
+        },
+        ignores: [
+            'wailsjs/*',
+            'src/*.gen.ts',
+            'dist/*',
+            'node_modules/*',
+            'src/components/ui/*',
+        ],
     },
-    ignores: ["wailsjs/*", "src/*.gen.ts", "dist/*", "node_modules/*", "src/components/ui/*"]
-  },
 ])
