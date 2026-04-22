@@ -1,6 +1,7 @@
 # Ignore artifacts:
 build
 coverage
-src/components
+src/components/ui
 wailsjs
 dist/
+pnpm*
