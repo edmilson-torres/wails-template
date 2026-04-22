@@ -9,3 +9,11 @@ export function GetSystemInfo() {
 export function Greet(arg1) {
   return window['go']['main']['App']['Greet'](arg1);
 }
+
+export function ListFiles(arg1) {
+  return window['go']['main']['App']['ListFiles'](arg1);
+}
+
+export function SelectDirectory() {
+  return window['go']['main']['App']['SelectDirectory']();
+}
