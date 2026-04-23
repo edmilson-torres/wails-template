@@ -1,7 +1,11 @@
 import { useState } from 'react'
 
 import { Button } from '@/components/ui/button'
-import { ListFiles, SelectDirectory } from '../../wailsjs/go/main/App'
+import {
+    ListFiles,
+    SelectDirectory,
+    SelectFile,
+} from '../../wailsjs/go/main/App'
 
 interface FileInfo {
     FullPath: string
@@ -13,6 +17,7 @@ export function FileExplorer() {
     const [selectedDir, setSelectedDir] = useState('')
     const [files, setFiles] = useState<FileInfo[]>([])
     const [error, setError] = useState('')
+    const [selectedFile, setSelectedFile] = useState('')
 
     const handleSelectDirectory = async () => {
         try {
@@ -29,6 +34,18 @@ export function FileExplorer() {
         }
     }
 
+    const handleSelectFile = async () => {
+        try {
+            const filePath = await SelectFile()
+            if (filePath === '') {
+                return
+            }
+            setSelectedFile(filePath)
+        } catch (err) {
+            setError(String(err))
+        }
+    }
+
     return (
         <div className="w-full p-5">
             <div className="flex flex-col justify-center max-w-screen-md mx-auto gap-5">
@@ -36,6 +53,12 @@ export function FileExplorer() {
                 <Button onClick={handleSelectDirectory}>
                     Selecionar Diretório
                 </Button>
+                <Button onClick={handleSelectFile}>Selecionar Arquivo</Button>
+                {selectedFile && (
+                    <p className="text-sm text-gray-500">
+                        Arquivo: {selectedFile}
+                    </p>
+                )}
                 {error && <p className="text-sm text-red-500">Erro: {error}</p>}
                 {selectedDir && !error && (
                     <p className="text-sm text-gray-500">

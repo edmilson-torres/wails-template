@@ -54,6 +54,19 @@ func (a *App) SelectDirectory() string {
 	return selected
 }
 
+func (a *App) SelectFile() string {
+	if a.ctx == nil {
+		return ""
+	}
+	selected, err := wailsruntime.OpenFileDialog(a.ctx, wailsruntime.OpenDialogOptions{
+		Title: "Selecionar Arquivo",
+	})
+	if err != nil || selected == "" {
+		return ""
+	}
+	return selected
+}
+
 func (a *App) ListFiles(dirPath string) ([]FileInfo, error) {
 	if dirPath == "" {
 		return nil, fmt.Errorf("directory path is empty")

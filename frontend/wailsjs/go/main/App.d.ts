@@ -9,3 +9,5 @@ export function Greet(arg1:string):Promise<string>;
 export function ListFiles(arg1:string):Promise<Array<main.FileInfo>>;
 
 export function SelectDirectory():Promise<string>;
+
+export function SelectFile():Promise<string>;
