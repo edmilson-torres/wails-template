@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "skills": {
+    "tlc-spec-driven": {
+      "name": "tlc-spec-driven",
+      "source": "local",
+      "contentHash": "79d0e1b750dfc70820ac0152d9ca78927c398f669397e9cdb8bb812ceca2fbc6",
+      "installedAt": "2026-04-24T12:14:39.456Z",
+      "updatedAt": "2026-04-24T12:14:39.456Z",
+      "agents": [
+        "opencode"
+      ],
+      "method": "copy",
+      "global": false
+    },
+    "codenavi": {
+      "name": "codenavi",
+      "source": "local",
+      "contentHash": "23ac05b7f2d8df8311129d41432eba248bdcf14e9ace3f17c581976f7d888ada",
+      "installedAt": "2026-04-24T12:14:39.481Z",
+      "updatedAt": "2026-04-24T12:14:39.481Z",
+      "agents": [
+        "opencode"
+      ],
+      "method": "copy",
+      "global": false
+    },
+    "mermaid-studio": {
+      "name": "mermaid-studio",
+      "source": "local",
+      "contentHash": "8a240b980cee9287a20ec6ea1e4837c5d6e43c756ab17fcebbf6b1087a609815",
+      "installedAt": "2026-04-24T12:14:39.547Z",
+      "updatedAt": "2026-04-24T12:14:39.547Z",
+      "agents": [
+        "opencode"
+      ],
+      "method": "copy",
+      "global": false
+    }
+  }
+}
