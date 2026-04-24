@@ -1,13 +1,18 @@
 {
-  "$schema": "https://wails.io/schemas/config.v2.json",
-  "name": "Wails Template",
-  "outputfilename": "wails-template",
-  "frontend:install": "pnpm install",
-  "frontend:build": "pnpm build",
-  "frontend:dev:watcher": "pnpm dev",
-  "frontend:dev:serverUrl": "auto",
-  "author": {
-    "name": "Edmilson Torres",
-    "email": "edmilson.torres@gmail.com"
-  }
+    "$schema": "https://wails.io/schemas/config.v2.json",
+    "name": "Polygon Fix",
+    "version": "0.0.1",
+    "outputfilename": "polygon-fix",
+    "frontend:install": "pnpm install",
+    "frontend:build": "pnpm build",
+    "frontend:dev:watcher": "pnpm dev",
+    "frontend:dev:serverUrl": "auto",
+    "author": {
+        "name": "Edmilson Torres",
+        "email": "edmilson.torres@mundiale.com.br"
+    },
+    "info": {
+        "productName": "Polygon Fix",
+        "productVersion": "0.0.1"
+    }
 }
