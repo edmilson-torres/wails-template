@@ -1,13 +1,8 @@
-import { BadgeDemo } from '@/components/badge-demo'
-import { CalendarDemo } from '@/components/calendar-demo'
-import { CardDemo } from '@/components/card-demo'
-import { CheckboxDemo } from '@/components/checkbox-demo'
-import { DropdownMenuDemo } from '@/components/dropdown-menu-demo'
 import { useEffect, useState } from 'react'
 
 import { GetSystemInfo } from '../../wailsjs/go/main/App'
 
-export function Example() {
+export function Home() {
     const [info, setInfo] = useState('')
 
     useEffect(() => {
@@ -26,11 +21,6 @@ export function Example() {
                 <h2 className="text-2xl font-bold">Example</h2>
                 <p>This is an example page.</p>
                 <p>{info}</p>
-                <DropdownMenuDemo />
-                <BadgeDemo />
-                <CardDemo />
-                <CheckboxDemo />
-                <CalendarDemo />
             </div>
         </div>
     )

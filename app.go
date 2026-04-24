@@ -3,13 +3,9 @@ package main
 import (
 	"context"
 	"fmt"
-	"os"
-	"path/filepath"
 	"runtime"
 
 	"github.com/shirou/gopsutil/mem"
-	wailsruntime "github.com/wailsapp/wails/v2/pkg/runtime"
-
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
@@ -39,61 +35,6 @@ func (a *App) startup(ctx context.Context) {
 // Greet returns a greeting for the given name
 func (a *App) Greet(name string) string {
 	return fmt.Sprintf("Hello %s, It's show time!", name)
-}
-
-func (a *App) SelectDirectory() string {
-	if a.ctx == nil {
-		return ""
-	}
-	selected, err := wailsruntime.OpenDirectoryDialog(a.ctx, wailsruntime.OpenDialogOptions{
-		Title: "Selecionar Diretório",
-	})
-	if err != nil || selected == "" {
-		return ""
-	}
-	return selected
-}
-
-func (a *App) SelectFile() string {
-	if a.ctx == nil {
-		return ""
-	}
-	selected, err := wailsruntime.OpenFileDialog(a.ctx, wailsruntime.OpenDialogOptions{
-		Title: "Selecionar Arquivo",
-	})
-	if err != nil || selected == "" {
-		return ""
-	}
-	return selected
-}
-
-func (a *App) ListFiles(dirPath string) ([]FileInfo, error) {
-	if dirPath == "" {
-		return nil, fmt.Errorf("directory path is empty")
-	}
-
-	entries, err := os.ReadDir(dirPath)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read directory: %w", err)
-	}
-
-	files := make([]FileInfo, 0)
-	for _, entry := range entries {
-		if entry.IsDir() {
-			continue
-		}
-		fullPath := filepath.Join(dirPath, entry.Name())
-		name := entry.Name()
-		ext := filepath.Ext(name)
-
-		files = append(files, FileInfo{
-			FullPath: fullPath,
-			Name:     name,
-			Ext:      ext,
-		})
-	}
-
-	return files, nil
 }
 
 func (a *App) GetSystemInfo() (string, error) {
