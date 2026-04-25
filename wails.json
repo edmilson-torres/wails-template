@@ -1,8 +1,8 @@
 {
     "$schema": "https://wails.io/schemas/config.v2.json",
-    "name": "Polygon Fix",
+    "name": "Wails Template",
     "version": "0.0.1",
-    "outputfilename": "polygon-fix",
+    "outputfilename": "wails-template",
     "frontend:install": "pnpm install",
     "frontend:build": "pnpm build",
     "frontend:dev:watcher": "pnpm dev",
@@ -12,7 +12,7 @@
         "email": "edmilson.torres@mundiale.com.br"
     },
     "info": {
-        "productName": "Polygon Fix",
+        "productName": "Wails Template",
         "productVersion": "0.0.1"
     }
 }
